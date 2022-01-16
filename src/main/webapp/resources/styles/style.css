@@ -1,0 +1,134 @@
+.header {
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px 10px wheat;
+  transition: 1s;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(90deg, #09022e,#ff1154);
+}
+
+.header {
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px 10px wheat;
+  transition: 1s;
+}
+
+.header:hover {
+  transform: scale(1.1);
+}
+
+.main {
+  max-width: 100%;
+  display: inline-flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main__input {
+  max-width: 500px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__input > div {
+  background-color: #eceff1;
+  padding: 5px;
+  border: darkblue 1px solid;
+}
+
+div#chooseY {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  border: steelblue 1px solid;
+  margin: 5px;
+}
+
+.main__area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: #09022e 2px solid;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.scroll-table {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+th {
+  background: #AFCDE7;
+  color: white;
+  padding: 10px 20px;
+}
+th, td {
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-color: white;
+}
+td {
+  background: #D8E6F3;
+}
+th:first-child, td:first-child {
+  text-align: center;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+img.github {
+  transition: transform .8s ease-in-out;
+}
+
+img.github:hover {
+  transform: rotate(360deg);
+}
+
+legend {
+  color: steelblue;
+  font-weight: bold;
+}
+#submit {
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+#submit:hover {
+  background-color: #0b76ef;
+}
+
+#submit:active {
+  background-color: chartreuse;
+}
+
+body {
+  background: linear-gradient(90deg, #09022e,#ff1154);
+}
+
+#form\:_t8 {
+  visibility: hidden;
+}
