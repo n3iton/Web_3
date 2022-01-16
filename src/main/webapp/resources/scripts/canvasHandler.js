@@ -29,7 +29,7 @@ function drawTriangle(rValue) {
     ctx.beginPath();
     ctx.moveTo((width / 2), height / 2);
     ctx.lineTo(width / 2 - rValue, height / 2);
-    ctx.lineTo(width / 2, (height / 2) + (rValue / 2));
+    ctx.lineTo(width / 2, (height / 2) - (rValue / 2));
     ctx.fill();
 }
 
@@ -37,7 +37,7 @@ function drawCircle(rValue) {
     ctx.beginPath();
     ctx.fillStyle = '#3399FF';
     ctx.strokeStyle = '#3399FF';
-    ctx.arc(width / 2, height / 2, rValue / 2, Math.PI, 3 * Math.PI / 2);
+    ctx.arc(width / 2, height / 2, rValue, 0, Math.PI / 2);
     ctx.lineTo(width / 2, height / 2);
     ctx.fill();
     ctx.stroke();
@@ -47,7 +47,7 @@ function drawRectangle(rValue) {
     ctx.fillStyle = '#3399FF';
     ctx.strokeStyle = '#3399FF';
     ctx.beginPath();
-    ctx.fillRect(width / 2, height / 2, rValue, rValue/2);
+    ctx.fillRect(width / 2, height / 2, -rValue, rValue);
 }
 
 function drawAXIS() {
