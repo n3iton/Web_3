@@ -23,13 +23,17 @@
     <div class="main__input">
         <div id="chooseX">
             <ace:sliderEntry min="-4" max="4" stepPercent="10" />
-<!--            <h:outputText id="sliderValue" value="#{SliderX.sliderValue}"/>-->
         </div>
         <div id="chooseY">
             <h:inputText value="0" />
         </div>
         <div id="chooseR">
-            <ace:sliderEntry min="2" max="5" stepPercent="25" axis="y" />
+            <h:form>
+                <!-- <h:inputHidden id="R" styleClass="R" value="#{rSliderBean.sliderValue / 100}" /> -->
+                <ace:sliderEntry id="R" value="2" min="2" max="5" stepPercent="8.33" axis="y" showLabels="true"
+                                 onSlideEnd="refreshCanvas()" />
+                <h:inputHidden styleClass="R" value="#{containerBean.pointBean.r}" />
+            </h:form>
         </div>
         <button id="submit">Отправить</button>
     </div>

@@ -10,13 +10,8 @@ let height = canvas.height;
 // canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
 
 
-function loadCanvas(){
-    drawCanvas();
-}
-
 function drawCanvas() {
-    //let valR = document.querySelector('input[name="r"]:checked').value * step;
-    let valR = 3 * step;
+    let valR = +document.getElementById("j_idt12:R_hidden").getAttribute("value") * step;
     ctx.globalAlpha = 1;
     drawRectangle(valR);
     drawTriangle(valR);
@@ -108,4 +103,9 @@ function refreshCanvas() {
     drawCanvas();
 }
 
-loadCanvas();
+let valR = 2 * step;
+ctx.globalAlpha = 1;
+drawRectangle(valR);
+drawTriangle(valR);
+drawCircle(valR);
+drawAXIS();
