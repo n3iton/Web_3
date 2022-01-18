@@ -21,29 +21,34 @@
 
 <div class="main">
     <div class="main__input">
-        <div id="chooseX">
-            <ace:sliderEntry min="-4" max="4" stepPercent="10" />
-        </div>
-        <div id="chooseY">
-            <h:inputText value="0" />
-        </div>
-        <div id="chooseR">
-            <h:form>
-                <!-- <h:inputHidden id="R" styleClass="R" value="#{rSliderBean.sliderValue / 100}" /> -->
-                <ace:sliderEntry id="R" value="2" min="2" max="5" stepPercent="8.33" axis="y" showLabels="true"
-                                 onSlideEnd="refreshCanvas()" />
-                <h:inputHidden styleClass="R" value="#{containerBean.pointBean.r}" />
-            </h:form>
-        </div>
-        <button id="submit">Отправить</button>
+        <h:form>
+            <div id="chooseX">
+                Выберите X:
+                <ace:sliderEntry id="X" min="-4" max="4" stepPercent="1.25" showLabels="true" />
+                <h:inputHidden styleClass="X" value="#{containerBean.pointBean.x}" />
+            </div>
+            <div id="chooseY">
+                Выберите Y:
+                <h:inputText styleClass="Y" value="#{containerBean.pointBean.y}" />
+            </div>
+            <div id="chooseR">
+                Выберите R:
+                    <ace:sliderEntry id="R" value="2" min="2" max="5" stepPercent="8.33" showLabels="true"
+                                     onSlideEnd="refreshCanvas()" />
+                    <h:inputHidden styleClass="R" value="#{containerBean.pointBean.r}" />
+            </div>
+            <h:commandButton class="button" value="Отправить" >
+
+            </h:commandButton>
+        </h:form>
     </div>
     <div class="main__area">
         <ui:include src="templates/canvas.html" />
     </div>
 </div>
 
-<script src="resources/scripts/canvasHandler.js"></script>
-<!--<script src="formActions.js"></script>-->
+    <script src="resources/scripts/canvasHandler.js" >
+    </script>
 </h:body>
 
 </html>

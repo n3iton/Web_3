@@ -10,7 +10,7 @@ body {
   line-height: 1.5;
   display:flex;
   flex-direction:column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background: linear-gradient(90deg, #09022e,#ff1154);
 }
@@ -41,10 +41,13 @@ body {
   justify-content: space-between;
 }
 
-.main__input > div {
+form {
   background-color: #eceff1;
-  padding: 5px;
+  /*padding: 5px;*/
   border: darkblue 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 div#chooseY {
@@ -69,26 +72,29 @@ table {
   border-collapse: collapse;
 }
 
-.scroll-table {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
+/*.scroll-table {*/
+/*  max-height: 200px;*/
+/*  overflow-y: auto;*/
+/*  margin-top: 0px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
 
 th {
   background: #AFCDE7;
   color: white;
   padding: 10px 20px;
 }
+
 th, td {
   border-style: solid;
   border-width: 0 1px 1px 0;
   border-color: white;
 }
+
 td {
   background: #D8E6F3;
 }
+
 th:first-child, td:first-child {
   text-align: center;
 }
@@ -108,20 +114,21 @@ img.github:hover {
   transform: rotate(360deg);
 }
 
-legend {
-  color: steelblue;
-  font-weight: bold;
-}
-#submit {
+/*legend {*/
+/*  color: steelblue;*/
+/*  font-weight: bold;*/
+/*}*/
+
+.button {
   border: 1px solid black;
   border-radius: 3px;
 }
 
-#submit:hover {
+.button:hover {
   background-color: #0b76ef;
 }
 
-#submit:active {
+.button:active {
   background-color: chartreuse;
 }
 
