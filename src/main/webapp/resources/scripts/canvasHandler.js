@@ -11,7 +11,7 @@ let height = canvas.height;
 
 
 function drawCanvas() {
-    let valR = +document.getElementById("j_idt8:R_hidden").getAttribute("value") * step;
+    let valR = +document.getElementById("toSend:R_hidden").getAttribute("value") * step;
     ctx.globalAlpha = 1;
     drawRectangle(valR);
     drawTriangle(valR);

@@ -20,34 +20,69 @@
 <h:body>
 
 <div class="main">
-    <div class="main__input">
-        <h:form>
-            <div id="chooseX">
+    <div id="input-field">
+        <h:form id="toSend">
+            <div>
                 Выберите X:
-                <ace:sliderEntry id="X" min="-4" max="4" stepPercent="1.25" showLabels="true" />
+                <ace:sliderEntry id="X" min="-4" max="4" value="0" stepPercent="1.25" showLabels="true" onSlideEnd="setValueX()" />
                 <h:inputHidden styleClass="X" value="#{containerBean.pointBean.x}" />
             </div>
-            <div id="chooseY">
+            <div>
                 Выберите Y:
-                <h:inputText styleClass="Y" value="#{containerBean.pointBean.y}" />
+                <h:inputText styleClass="Y" id="Y" value="#{containerBean.pointBean.y}" />
             </div>
-            <div id="chooseR">
+            <div>
                 Выберите R:
-                    <ace:sliderEntry id="R" value="2" min="2" max="5" stepPercent="8.33" showLabels="true"
-                                     onSlideEnd="refreshCanvas()" />
+                    <ace:sliderEntry id="R" axis="x" value="2" min="2" max="5" showLabels="true"
+                                     stepPercent="8.33" onSlideEnd="refreshCanvas(); setValueR()" />
                     <h:inputHidden styleClass="R" value="#{containerBean.pointBean.r}" />
             </div>
-            <h:commandButton class="button" value="Отправить" >
-
+            <div class="span"></div>
+            <h:commandButton class="button" action="#{containerBean.addPoint}" value="Отправить" >
+                <f:ajax execute="toSend" render="only-table" />
             </h:commandButton>
         </h:form>
     </div>
     <div class="main__area">
         <ui:include src="templates/canvas.html" />
     </div>
+    <div id="ajax">
+        <h:panelGroup id="only-table">
+            <h:dataTable value="#{containerBean.points}" var="point">
+                <h:column>
+                    <f:facet name="header">X</f:facet>
+                    ${point.x}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Y</f:facet>
+                    ${point.y}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">R</f:facet>
+                    ${point.r}
+                </h:column>
+
+<!--                <h:column>-->
+<!--                    <f:facet name="header">Result</f:facet>-->
+<!--                    ${point.result}-->
+<!--                </h:column>-->
+
+                <h:column>
+                    <f:facet name="header">Date</f:facet>
+                    ${point.date}
+                </h:column>
+
+
+            </h:dataTable>
+        </h:panelGroup>
+    </div>
 </div>
 
     <script src="resources/scripts/canvasHandler.js" >
+    </script>
+    <script src="resources/scripts/formHandler.js" >
     </script>
 </h:body>
 
