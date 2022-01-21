@@ -8,7 +8,7 @@ public class PointBean {
 
   private double X;
   private double Y;
-  private double R;
+  private double R = 2d;
   private Timestamp date = new Timestamp(new Date().getTime());
 
   public double getX() {
@@ -41,5 +41,9 @@ public class PointBean {
 
   public void setDate(Timestamp date) {
     this.date = date;
+  }
+
+  public boolean getResult() {
+    
   }
 }

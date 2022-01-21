@@ -7,7 +7,7 @@ canvas.width = 510;
 canvas.height = 510;
 let width = canvas.width;
 let height = canvas.height;
-// canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
+canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
 
 
 function drawCanvas() {
@@ -101,6 +101,21 @@ function clearCanvas() {
 function refreshCanvas() {
     clearCanvas();
     drawCanvas();
+}
+
+function clickOnCanvas(canvas, event) {
+    let rect = canvas.getBoundingClientRect()
+    let width = canvas.width;
+    let height = canvas.height;
+    let x = (event.clientX - rect.left - width / 2) / step;
+    let y = (height / 2 - event.clientY + rect.top) / step;
+    x = x.toFixed(2).replace(".00", "");
+    y = y.toFixed(2).replace(".00", "");
+
+    document.getElementById("toSend:_t9").setAttribute("value", x);
+    document.getElementById("toSend:Y").setAttribute("value", y);
+    document.getElementById("toSend:_t14").click();
+
 }
 
 let valR = 2 * step;

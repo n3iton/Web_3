@@ -33,8 +33,10 @@
             </div>
             <div>
                 Выберите R:
-                    <ace:sliderEntry id="R" axis="x" value="2" min="2" max="5" showLabels="true"
-                                     stepPercent="8.33" onSlideEnd="refreshCanvas(); setValueR()" />
+                    <ace:sliderEntry id="R" axis="x" value="#{containerBean.pointBean.r}" min="2" max="5" showLabels="true"
+                                     stepPercent="8.33" onSlideEnd="refreshCanvas(); setValueR()">
+                        <ace:ajax execute="@this" render="@this" />
+                    </ace:sliderEntry>
                     <h:inputHidden styleClass="R" value="#{containerBean.pointBean.r}" />
             </div>
             <div class="span"></div>
@@ -46,6 +48,7 @@
     <div class="main__area">
         <ui:include src="templates/canvas.html" />
     </div>
+</div>
     <div id="ajax">
         <h:panelGroup id="only-table">
             <h:dataTable value="#{containerBean.points}" var="point">
@@ -64,10 +67,10 @@
                     ${point.r}
                 </h:column>
 
-<!--                <h:column>-->
-<!--                    <f:facet name="header">Result</f:facet>-->
-<!--                    ${point.result}-->
-<!--                </h:column>-->
+                <!--                <h:column>-->
+                <!--                    <f:facet name="header">Result</f:facet>-->
+                <!--                    ${point.result}-->
+                <!--                </h:column>-->
 
                 <h:column>
                     <f:facet name="header">Date</f:facet>
@@ -78,7 +81,6 @@
             </h:dataTable>
         </h:panelGroup>
     </div>
-</div>
 
     <script src="resources/scripts/canvasHandler.js" >
     </script>
