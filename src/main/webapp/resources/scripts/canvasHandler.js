@@ -1,4 +1,3 @@
-
 let axis_separator_offset = 5;
 let step = 50;
 let canvas = document.getElementById("canvas"),
@@ -7,8 +6,13 @@ canvas.width = 510;
 canvas.height = 510;
 let width = canvas.width;
 let height = canvas.height;
-canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
 
+canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
+document.getElementById("toSend:_t15").addEventListener('click', () => {
+    let x = document.getElementById("toSend:_t10").getAttribute("value");
+    let y = document.getElementById("toSend").elements[5].value;
+    drawPoint(+x, +y);
+});
 
 function drawCanvas() {
     let valR = +document.getElementById("toSend:R_hidden").getAttribute("value") * step;
@@ -83,7 +87,15 @@ function drawAXIS() {
 }
 
 function drawPoint(x, y) {
-    let pointColor = 'orange';
+    let pointColor;
+    // let result = $('#only-table tr').last()[0].cells[3].innerText;
+    let r = parseFloat(document.getElementById("toSend:_t13").getAttribute("value"));
+    let result = checkArea(x, y, r);
+    console.log(result);
+    if (result == true)
+        pointColor = 'green';
+    else pointColor = 'red';
+
     ctx.beginPath();
     ctx.arc(canvas.width / 2 + x * step, canvas.height / 2 - y * step, axis_separator_offset, 0, Math.PI * 2);
     ctx.fillStyle = pointColor;
@@ -104,7 +116,7 @@ function refreshCanvas() {
 }
 
 function clickOnCanvas(canvas, event) {
-    let rect = canvas.getBoundingClientRect()
+    let rect = canvas.getBoundingClientRect();
     let width = canvas.width;
     let height = canvas.height;
     let x = (event.clientX - rect.left - width / 2) / step;
@@ -112,10 +124,24 @@ function clickOnCanvas(canvas, event) {
     x = x.toFixed(2).replace(".00", "");
     y = y.toFixed(2).replace(".00", "");
 
-    document.getElementById("toSend:_t9").setAttribute("value", x);
-    document.getElementById("toSend:Y").setAttribute("value", y);
-    document.getElementById("toSend:_t14").click();
+    document.getElementById("toSend:_t10").setAttribute("value", x);
+    // document.getElementById("toSend:Y").setAttribute("value", y);
+    document.getElementById("toSend").elements[5].value = y;
+    document.getElementById("toSend:_t15").click();
 
+    document.getElementById("toSend").elements[5].value = 0;
+}
+
+function checkArea(X, Y, R) {
+    let result = false;
+    if (X <= 0 && Y <= 0)
+        result = (Math.abs(X) <= R) && (Math.abs(Y) <= R);
+    else if (X <= 0 && Y >= 0)
+        result = (R + X >= 2 * Y);
+    else if (X >= 0 && Y <= 0)
+        result = Math.sqrt(X * X + Y * Y) <= R;
+
+    return result;
 }
 
 let valR = 2 * step;

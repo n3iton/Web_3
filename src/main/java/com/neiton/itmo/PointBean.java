@@ -44,6 +44,14 @@ public class PointBean {
   }
 
   public boolean getResult() {
-    
+    boolean result = false;
+    if (X <= 0 && Y <= 0)
+      result = (Math.abs(X) <= R) && (Math.abs(Y) <= R);
+    else if (X <= 0 && Y >= 0)
+      result = (R + X >= 2 * Y);
+    else if (X >= 0 && Y <= 0)
+      result = Math.sqrt(X * X + Y * Y) <= R;
+
+    return result;
   }
 }

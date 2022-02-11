@@ -16,6 +16,7 @@
 <h:head>
     <title>Web3</title>
     <h:outputStylesheet library="styles" name="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </h:head>
 <h:body>
 
@@ -67,10 +68,13 @@
                     ${point.r}
                 </h:column>
 
-                <!--                <h:column>-->
-                <!--                    <f:facet name="header">Result</f:facet>-->
-                <!--                    ${point.result}-->
-                <!--                </h:column>-->
+                <h:column>
+                    <f:facet name="header">Result</f:facet>
+                    ${point.result}
+                    <script>
+                        
+                    </script>
+                </h:column>
 
                 <h:column>
                     <f:facet name="header">Date</f:facet>
