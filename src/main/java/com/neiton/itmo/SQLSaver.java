@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "SQLSaver")
-@ApplicationScoped
+@SessionScoped
 public class SQLSaver {
 
   @ManagedProperty(value = "#{SQLConnector}")

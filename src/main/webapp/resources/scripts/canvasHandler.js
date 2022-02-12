@@ -11,8 +11,31 @@ canvas.addEventListener('mousedown', event => clickOnCanvas(canvas, event));
 document.getElementById("toSend:_t15").addEventListener('click', () => {
     let x = document.getElementById("toSend:_t10").getAttribute("value");
     let y = document.getElementById("toSend").elements[5].value;
+    if (!checkY()) {
+        event.preventDefault();
+        return;
+    }
     drawPoint(+x, +y);
 });
+
+function checkY() {
+    let wrongFieldY = document.getElementById("wrong_field_Y");
+    let y = document.getElementById("toSend").elements[5].value;
+    if (y.value.trim() === "") {
+        wrongFieldY.textContent = "Поле Y должно быть заполнено";
+        return false;
+    }
+    y.value = y.value.substring(0, 10).replace(',', '.');
+    if (!(y.value && !isNaN(y.value))) {
+        wrongFieldY.textContent = "Y должен быть числом!";
+        return false;
+    }
+    if (y.value <= -5 || y.value >= 5) {
+        wrongFieldY.textContent = "Y должен принадлежать промежутку: (-5; 5)!";
+        return false;
+    }
+    return true;
+}
 
 function drawCanvas() {
     let valR = +document.getElementById("toSend:R_hidden").getAttribute("value") * step;

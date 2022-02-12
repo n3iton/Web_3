@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "SQLInputReader")
-@ApplicationScoped
+@SessionScoped
 public class SQLInputReader {
 
   @ManagedProperty(value = "#{SQLConnector}")

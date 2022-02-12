@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "containerBean")
-@ApplicationScoped
+@SessionScoped
 public class ContainerBean {
 
   @ManagedProperty(value = "#{SQLSaver}")
@@ -28,9 +29,7 @@ public class ContainerBean {
   }
 
   public ArrayList<PointBean> getPoints() {
-    if (points == null) {
-      points = reader.sqlCollect(new ArrayList<>());
-    }
+    points = reader.sqlCollect(new ArrayList<>());
     return points;
   }
 

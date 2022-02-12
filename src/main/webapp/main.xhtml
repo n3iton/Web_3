@@ -29,7 +29,7 @@
                 <h:inputHidden styleClass="X" value="#{containerBean.pointBean.x}" />
             </div>
             <div>
-                Выберите Y:
+                <legend id="wrong_field_Y">Выберите Y:</legend>
                 <h:inputText styleClass="Y" id="Y" value="#{containerBean.pointBean.y}" />
             </div>
             <div>
@@ -84,6 +84,10 @@
 
             </h:dataTable>
         </h:panelGroup>
+    </div>
+
+    <div style="text-align: center">
+        <ace:linkButton id="move-to-main" value="На стартовую страницу" href="home.xhtml" />
     </div>
 
     <script src="resources/scripts/canvasHandler.js" >

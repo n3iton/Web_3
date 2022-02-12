@@ -6,10 +6,11 @@ import java.sql.SQLException;
 import javax.annotation.Resource;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.sql.DataSource;
 
 @ManagedBean(name = "SQLConnector")
-@ApplicationScoped
+@SessionScoped
 public class SQLConnector {
   @Resource(lookup = "java:/PostgresDS")
   private DataSource dataSource;

@@ -130,7 +130,7 @@ window.setInterval(
 
 */
 
-const timeout = 1;
+const timeout = 8;
 let first = true;
 
 function clickButton(callbackFunction) {
